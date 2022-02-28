@@ -21,10 +21,8 @@ public class SearchIfCodeForJUnit5ExistAtSoftAssertPageOnSelenideGithub {
         // переходим на неё
         $("li.Box-row.wiki-more-pages.px-2.py-2").sibling(0).$("a").click();
         // проверяем текст Джунита5
-        //$$("ol li").filterBy(text("Using JUnit5 extend test class:"));
-        $("ol").sibling(1).shouldHave(text("Using JUnit5 extend test class:"));
+        //$$("ol li").filterBy(text("Using JUnit5 extend test class:") - просто находит - ничего не проверяет;
+        $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
 
-
-        sleep(5000);
     }
 }
