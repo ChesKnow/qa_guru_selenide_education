@@ -3,6 +3,7 @@ package github;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SearchIfCodeForJUnit5ExistAtSoftAssertPageOnSelenideGithub {
@@ -13,13 +14,11 @@ public class SearchIfCodeForJUnit5ExistAtSoftAssertPageOnSelenideGithub {
         $("#wiki-tab").click();
 
         // кликаем по кнопке "показать еще 2 страницы, чтобы раскрыть весь список"
-        //$("button.f6").click();
-        // более "читаемый вариант", что за кнопку мы нажимаем
-        $("div.js-wiki-sidebar-toggle-display li.Box-row.wiki-more-pages-link button.f6").click();
+        $("#wiki-pages-box").find(withText("Show 2 more")).click();
         // проверяем есть ли СофтАссершн в страницах
-        $("li.Box-row.wiki-more-pages.px-2.py-2").sibling(0).$("a").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         // переходим на неё
-        $("li.Box-row.wiki-more-pages.px-2.py-2").sibling(0).$("a").click();
+        $("#wiki-pages-box").$(withText("SoftAssertions")).click();
         // проверяем текст Джунита5
         //$$("ol li").filterBy(text("Using JUnit5 extend test class:") - просто находит - ничего не проверяет;
         $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
