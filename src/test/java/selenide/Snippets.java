@@ -116,7 +116,6 @@ public class Snippets {
         //longer timeouts
         $("").shouldBe(visible, Duration.ofSeconds(30));
 
-
     }
 
     void conditions_examples() {
@@ -182,7 +181,6 @@ public class Snippets {
         $$("").shouldHave(sizeGreaterThanOrEqual(1));
         $$("").shouldHave(sizeLessThan(3));
         $$("").shouldHave(sizeLessThanOrEqual(2));
-
 
     }
 
