@@ -201,7 +201,6 @@ public class Snippets {
         executeJavaScript("alert(arguments[0]+arguments[1])", "abc", 12);
         long fortytwo = executeJavaScript("return arguments[0]*arguments[1];", 6, 7);
 
-
     }
 }
 
